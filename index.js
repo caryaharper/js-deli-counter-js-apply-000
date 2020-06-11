@@ -1,28 +1,25 @@
-function takeANumber(currentLineOfPeople,newPersonsName) {
-  currentLineOfPeople.push(newPersonsName)
-  
-  return `Welcome, ${newPersonsName}. You are number ${currentLineOfPeople.length} in line.`;
+function takeANumber (currentLine, newName) {
+  currentLine.push(newName)
+  return `Welcome, ${newName}. You are number ${currentLine.length} in line.`
 }
 
-function nowServing(currentLineOfPeople) {
-  if (currentLineOfPeople.length === 0) {
-   return  "There is nobody waiting to be served!"
+function nowServing (katzDeliLine) {
+  if (katzDeliLine.length === 0) {
+    return 'There is nobody waiting to be served!'
+}
+return `Currently serving ${katzDeliLine.shift()}.`
+}
+
+
+function currentLine (katzDeliLine) {
+  if (katzDeliLine.length === 0 ) {
+    return "The line is currently empty."
   }
   
+  let welcomeMessage = "The line is currently: ";
   
-  return `Currently serving ${currentLineOfPeople.shift()}.`
-}
-
-function currentLine(currentLineOfPeople) {
- let listPhrase = 'The line is currently:';
- 
- if (currentLineOfPeople.length === 0) {
-   return "The line is currently empty."
- }
- 
- for (let i = 0; i < currentLineOfPeople.length; i += 1) {
-   listPhrase = `${listPhrase} ${i + 1}. ${currentLineOfPeople[i]}${i === currentLineOfPeople.length - 1 ? '' : ','}`
- }
- 
-return listPhrase
+  for (let i = 0; i < katzDeliLine.length; i += 1) {
+      welcomeMessage += `${i + 1}. ${katzDeliLine[i]}${i < katzDeliLine.length - 1 ? ", " : "" }`
+  }
+  return welcomeMessage;
 }
